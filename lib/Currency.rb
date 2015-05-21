@@ -34,15 +34,4 @@ class Currency
       @amount *= other
     end
   end
-
-
-
-
-
-
-
-
-
-
-
 end
