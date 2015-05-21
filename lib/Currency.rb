@@ -29,6 +29,12 @@ class Currency
     end
   end
 
+  def *(other)
+    if other.is_a?(Fixnum) || other.is_a?(Float)
+      @amount *= other
+    end
+  end
+
 
 
 

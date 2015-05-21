@@ -40,7 +40,10 @@ class CurrencyTest < Minitest::Test
     assert_raises(*DifferentCurrencyCode) {object1 + object2}
   end
 
-
+  def test_objects_able_to_be_mulitplied_by_fixnum_or_float
+    object1 = Currency.new(100, "USD")
+    assert_equal(90, object1 * 0.9)
+  end
 
 
 
