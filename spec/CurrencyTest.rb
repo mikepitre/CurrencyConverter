@@ -10,6 +10,12 @@ class CurrencyTest < Minitest::Test
     assert(new_object.code == "USD")
   end
 
+  def test_objects_with_same_amount_and_code_are_equal
+    object1 = Currency.new(50, "AUD")
+    object2 = Currency.new(50, "AUD")
+    assert(object1 == object2)
+  end
+
 
 
 

@@ -6,6 +6,12 @@ class Currency
     @code = code
   end
 
+  def ==(other)
+    other.is_a?(Currency) && (other.amount == self.amount) && (other.code == self.code)
+  end
+
+
+
 
 
 
