@@ -11,11 +11,15 @@ class CurrencyConverter < Minitest::Test
   def test_currency_converter_works_with_known_currencies
     object1 = Currency.new(10, :USD)
     assert_equal(12.79, Currency_Converter.new.convert(object1, :AUD ))
+    object2 = Currency.new(10, :USD)
+    assert_equal(9.08, Currency_Converter.new.convert(object1, :EUR ))
   end
 
-  def test_currecy_converter_works_between_any_currencies_it_knows
+  def test_currecy_converter_works_between_any_2_currencies_it_knows
     object1 = Currency.new(10, :AUD)
     assert_equal(7.10, Currency_Converter.new.convert(object1, :EUR))
+    object2 = Currency.new(12.79, :AUD)
+    assert_equal(10, Currency_Converter.new.convert(object2, :USD))
   end
 
   def test_unknown_currency_error_when_trying_to_convert_to_unknown_currency
