@@ -13,8 +13,8 @@ end
 def convert(currency_object, new_currency_code)
   new_currency_code.to_s
   if (@rates.has_key?(new_currency_code)) && (@rates.has_key?(currency_object.code))
-    result = currency_object.amount * (@rates[new_currency_code]/@rates[currency_object.code])
-    result.round(2)
+    new_amount = currency_object.amount * (@rates[new_currency_code]/@rates[currency_object.code])
+    Currency.new(new_amount.round(2), new_currency_code)
   else
     raise UnknownCurrencyCodeError
   end
