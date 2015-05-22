@@ -18,4 +18,9 @@ class CurrencyConverter < Minitest::Test
     assert_equal(7.10, Currency_Converter.new.convert(object1, :EUR))
   end
 
+  def test_unknown_currency_error_when_trying_to_convert_to_unknown_currency
+    object1 = Currency.new(10, :USD)
+    assert_raises(*UnknownCurrencyCodeError) {Currency_Converter.new.convert(object1, :CUP)}
+  end
+
 end
